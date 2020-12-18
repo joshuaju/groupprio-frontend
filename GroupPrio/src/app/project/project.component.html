@@ -1,0 +1,18 @@
+<p>This is the project administration page</p>
+<label style="padding: 10px">Projecttitle:</label>
+<input name='title' ngModel type="text"><br>
+
+<div *ngFor="let item of items" style="padding: 2px">
+  
+  <span style="padding-right: 5px">{{item}}</span>
+  <button (click)="removeItem(item)">delete</button>
+</div>
+
+<div style="padding: 10px">
+  <input #newItem type=text style="padding-right: 5px">
+  <button (click)="addItem(newItem.value)">add</button>
+</div>
+
+
+
+<button (click)="submitProject()">submit</button>

@@ -1,0 +1,7 @@
+<p>prioritize works!</p>
+
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of prioitems" cdkDrag>{{item}}</div>
+  </div>
+  <button (click)="submit()">submit</button>
