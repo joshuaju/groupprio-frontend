@@ -9,20 +9,16 @@ import { ProjectService } from './project.service';
 })
 export class ProjectComponent implements OnInit {
 
-    name: any;
     items:Array<string>=[];
     title='';
     @ViewChild('newItem') newItem:any;
   constructor(
     private route: ActivatedRoute,
-    private service: ProjectService
+    private service: ProjectService,
+    private router: Router
   ) { }
 
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params=> {
-      this.name = params['param'];
-    });
-  }
+  ngOnInit(): void { }
 
   addItem(item:string){
     this.items.push(item);
@@ -36,6 +32,6 @@ export class ProjectComponent implements OnInit {
   }
 
   submitProject(){
-    this.service.createProject(this.title,this.items);
+    this.service.createProject(this.title,this.items).subscribe(id => {this.router.navigate(['/status'], {relativeTo: this.route, queryParams: {projectId: id }})});
   }
 }

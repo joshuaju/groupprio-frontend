@@ -1,1 +1,13 @@
-<p>status works!</p>
+<label>Current prioritization</label><br>
+<h1>{{project.title}}</h1>
+<ol>
+<div *ngFor="let item of project.weightedItems" style="padding: 2px">
+
+  <li ><span style="padding-right: 5px">{{item}}</span></li>
+</div>
+</ol>
+
+
+
+
+<button (click)="refreshProject()">Refresh</button>

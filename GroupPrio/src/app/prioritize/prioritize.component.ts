@@ -9,7 +9,6 @@ import { PrioritizationService } from './prioritization.service';
   styleUrls: ['./prioritize.component.scss']
 })
 export class PrioritizeComponent implements OnInit {
-  name: any;
 
   prioitems : Array<string> = [];
   constructor(
@@ -19,7 +18,6 @@ export class PrioritizeComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params=> {
-      this.name = params['param'];
       this.service
       .getPrioItems("123")
       .subscribe(
@@ -32,7 +30,7 @@ export class PrioritizeComponent implements OnInit {
   submit(){
     this.service.submitPrio(this.prioitems);
   }
-  
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.prioitems, event.previousIndex, event.currentIndex);
   }
