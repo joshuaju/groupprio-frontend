@@ -12,6 +12,7 @@ export class ProjectComponent implements OnInit {
     items:Array<string>=[];
     title='';
     @ViewChild('newItem') newItem:any;
+
   constructor(
     private route: ActivatedRoute,
     private service: ProjectService,
@@ -32,6 +33,8 @@ export class ProjectComponent implements OnInit {
   }
 
   submitProject(){
-    this.service.createProject(this.title,this.items).subscribe(id => {this.router.navigate(['/status'], {relativeTo: this.route, queryParams: {projectId: id }})});
+    this.service.createProject(this.title,this.items).subscribe(
+      project => {this.router.navigate([project.id], {relativeTo: this.route})
+    });
   }
 }

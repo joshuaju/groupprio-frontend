@@ -13,22 +13,26 @@ export class PrioritizeComponent implements OnInit {
   prioitems : Array<string> = [];
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private service: PrioritizationService
   ) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params=> {
       this.service
-      .getPrioItems("123")
+      .getPrioItems(this.route.snapshot.params['id'])
       .subscribe(
-        items => {
-          this.prioitems = items;
+        prioProject => {
+          this.prioitems = prioProject.items;
         })
-    });
+    
   }
 
   submit(){
-    this.service.submitPrio(this.prioitems);
+    this.service.submitPrio(this.prioitems,this.route.snapshot.params['id']).subscribe(sub=>console.log(sub.items));
+  }
+  
+  getStatus(){
+    this.router.navigate(['../'], {relativeTo:this.route});
   }
 
   drop(event: CdkDragDrop<string[]>) {

@@ -5,9 +5,9 @@ import { ProjectComponent } from './project/project.component';
 import { StatusComponent } from './status/status.component';
 
 const routes: Routes = [
-  { path: 'prioritize', component: PrioritizeComponent},
-  { path: 'project', component: ProjectComponent},
-  { path: 'status', component: StatusComponent}
+  { path: 'project', component: ProjectComponent}, 
+  { path: 'project/:id', component: StatusComponent}, 
+  { path: 'project/:id/prioritization', component: PrioritizeComponent}
 ];
 
 @NgModule({
