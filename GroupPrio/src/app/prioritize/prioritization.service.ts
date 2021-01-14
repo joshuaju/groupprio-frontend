@@ -16,9 +16,9 @@ export class PrioritizationService {
     return this.http.get<PrioProject>(url);
   }
 
-  submitPrio(prio: string[], id: string): Observable<Submission>{
+  submitPrio(prio: string[], id: string): Observable<any>{
     var url = `${this.baseUrl}/project/${id}/submission`;
-    const submission= new Submission(prio);
-    return this.http.post<Submission>(url, submission);
+    const submission = new Submission(prio);
+    return this.http.post<any>(url, submission);
   }
 }

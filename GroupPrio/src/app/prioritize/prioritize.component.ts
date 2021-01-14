@@ -28,7 +28,7 @@ export class PrioritizeComponent implements OnInit {
   }
 
   submit(){
-    this.service.submitPrio(this.prioitems,this.route.snapshot.params['id']).subscribe(sub=>console.log(sub.items));
+    this.service.submitPrio(this.prioitems,this.route.snapshot.params['id']).subscribe();
   }
   
   getStatus(){
