@@ -1,4 +1,5 @@
 
+<label style="margin-bottom: 20px">{{title}}</label><br><br>
 <label>Select priority for each item by drag&drop</label>
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" style="margin-top: 10px">
     <div class="example-box" *ngFor="let item of prioitems" cdkDrag>{{item}}</div>

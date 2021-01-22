@@ -1,5 +1,5 @@
 <label>Projecttitle:</label><br>
-<input name='title' ngModel type="text" style="margin-bottom: 20px" ><br>
+<input name="title" [(ngModel)]="title" type="text" style="margin-bottom: 20px" ><br>
 
 
 
@@ -16,4 +16,4 @@
 
 
 
-<button (click)="submitProject()">Create</button>
+<button (click)="createProject()">Create</button>

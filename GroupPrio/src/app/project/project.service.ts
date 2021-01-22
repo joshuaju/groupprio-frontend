@@ -10,8 +10,8 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  createProject(name:string, items:string[]): Observable<Project> {
+  createProject(title:string, items:string[]): Observable<Project> {
     var url = 'http://localhost:4567/project'    
-    return this.http.post<Project>(url, {name, items});
+    return this.http.post<Project>(url, {title, items});
   }
 }
