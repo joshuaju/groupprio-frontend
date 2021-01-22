@@ -34,7 +34,7 @@ export class ProjectComponent implements OnInit {
 
   submitProject(){
     this.service.createProject(this.title,this.items).subscribe(
-      project => {this.router.navigate([project.id], {relativeTo: this.route})
+      project => {this.router.navigate(['project/'+project.id], {relativeTo: this.route})
     });
   }
 }

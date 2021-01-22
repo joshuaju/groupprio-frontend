@@ -11,6 +11,7 @@ import {WeightedProject} from '../entities/WeightedProject';
 export class StatusComponent implements OnInit {
   projectId: string ="";
   project: WeightedProject;
+  prioLink: string=""
 
   constructor(
     private route: ActivatedRoute,
@@ -22,12 +23,14 @@ export class StatusComponent implements OnInit {
 
   ngOnInit(): void {
       this.projectId = this.route.snapshot.params['id'];
+      this.prioLink = "http://localhost:4200/project/"+this.projectId+"/prioritization"
       this.refreshProject();      
   }
 
   refreshProject() {
     this.service.getProjectState(this.projectId).subscribe(project=> {
                                              this.project = project});
+                                             this.project.status = "22.01.2021 13:00 8 submissions";
 
   }
 

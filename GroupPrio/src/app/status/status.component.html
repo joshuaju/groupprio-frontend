@@ -1,5 +1,12 @@
-<label>Current prioritization</label><br>
-<h1>{{project.title}}</h1>
+<span>{{project.title}}</span><br>
+
+<label>Link for prioritization: </label>
+<a href="{{prioLink}}" style="margin-bottom: 20px">{{prioLink}}</a><br>
+
+
+
+<label>Current prioritization:</label>
+<span style="margin-left: 10px">{{project.status}}</span><br>
 <ol>
 <div *ngFor="let item of project.weightedItems" style="padding: 2px">
 
@@ -13,4 +20,4 @@
 <button (click)="refreshProject()">Refresh</button>
 
 
-<button (click)="prioritizeProject()">Prioritize</button>
+<button (click)="prioritizeProject()" style="margin-left: 10px">Prioritize</button>
