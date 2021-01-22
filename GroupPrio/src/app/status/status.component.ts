@@ -25,7 +25,7 @@ export class StatusComponent implements OnInit {
 
   ngOnInit(): void {
       this.projectId = this.route.snapshot.params['id'];
-      this.prioLink = environment.apiUrl+"project/"+this.projectId+"/prioritization"
+      this.prioLink = environment.frontendUrl+"/project/"+this.projectId+"/prioritization"
       this.refreshProject()
       this.refreshTime= new Date()      
   }

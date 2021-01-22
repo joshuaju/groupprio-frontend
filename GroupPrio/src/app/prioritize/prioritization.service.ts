@@ -18,7 +18,7 @@ export class PrioritizationService {
   }
 
   submitPrio(prio: string[], id: string): Observable<any>{
-    var url = `${environment.apiUrl}/${id}/submission`;
+    var url = `${environment.apiUrl}${this.endpoint}/${id}/submission`;
     const submission = new Submission(prio);
     return this.http.post<any>(url, submission);
   }
