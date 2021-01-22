@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { PrioProject } from '../entities/PrioProject';
 import { Submission } from '../entities/Submission';
 
@@ -8,16 +9,16 @@ import { Submission } from '../entities/Submission';
   providedIn: 'root'
 })
 export class PrioritizationService {
-  baseUrl = "http://localhost:4567"
+  endpoint = "/project"
   constructor(private http: HttpClient) { }
 
   getPrioItems(id: string): Observable<PrioProject>{
-    var url = `${this.baseUrl}/project/${id}`;
+    var url = `${environment.apiUrl}${this.endpoint}/${id}`;
     return this.http.get<PrioProject>(url);
   }
 
   submitPrio(prio: string[], id: string): Observable<any>{
-    var url = `${this.baseUrl}/project/${id}/submission`;
+    var url = `${environment.apiUrl}/${id}/submission`;
     const submission = new Submission(prio);
     return this.http.post<any>(url, submission);
   }
