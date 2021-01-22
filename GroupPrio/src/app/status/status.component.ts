@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { StatusService } from './status.service';
 import {WeightedProject} from '../entities/WeightedProject';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-status',
@@ -9,9 +10,10 @@ import {WeightedProject} from '../entities/WeightedProject';
   styleUrls: ['./status.component.scss']
 })
 export class StatusComponent implements OnInit {
-  projectId: string ="";
-  project: WeightedProject;
+  projectId: string =""
+  project: WeightedProject
   prioLink: string=""
+  refreshTime: Date = new Date()
 
   constructor(
     private route: ActivatedRoute,
@@ -23,15 +25,15 @@ export class StatusComponent implements OnInit {
 
   ngOnInit(): void {
       this.projectId = this.route.snapshot.params['id'];
-      this.prioLink = "http://localhost:4200/project/"+this.projectId+"/prioritization"
-      this.refreshProject();      
+      this.prioLink = environment.apiUrl+"project/"+this.projectId+"/prioritization"
+      this.refreshProject()
+      this.refreshTime= new Date()      
   }
 
   refreshProject() {
     this.service.getProjectState(this.projectId).subscribe(project=> {
                                              this.project = project});
-                                             this.project.status = "22.01.2021 13:00 8 submissions";
-
+                                             this.refreshTime= new Date()    
   }
 
   prioritizeProject() {
