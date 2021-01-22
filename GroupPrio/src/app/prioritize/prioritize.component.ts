@@ -11,6 +11,7 @@ import { PrioritizationService } from './prioritization.service';
 export class PrioritizeComponent implements OnInit {
 
   prioitems : Array<string> = [];
+  title: string="";
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -23,6 +24,7 @@ export class PrioritizeComponent implements OnInit {
       .subscribe(
         prioProject => {
           this.prioitems = prioProject.items;
+          this.title = prioProject.title;
         })
     
   }

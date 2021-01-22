@@ -5,7 +5,7 @@ import { ProjectComponent } from './project/project.component';
 import { StatusComponent } from './status/status.component';
 
 const routes: Routes = [
-  { path: 'project', component: ProjectComponent}, 
+  { path: '', component: ProjectComponent}, 
   { path: 'project/:id', component: StatusComponent}, 
   { path: 'project/:id/prioritization', component: PrioritizeComponent}
 ];

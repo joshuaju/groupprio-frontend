@@ -7,6 +7,7 @@ import { PrioritizeComponent } from './prioritize/prioritize.component';
 import { ProjectComponent } from './project/project.component';
 import { StatusComponent } from './status/status.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    DragDropModule
+    DragDropModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

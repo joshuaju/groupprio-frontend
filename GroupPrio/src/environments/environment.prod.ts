@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'groupprio.bagofcode.tech:80/api',
+  frontendUrl: 'http://localhost:4200'
 };

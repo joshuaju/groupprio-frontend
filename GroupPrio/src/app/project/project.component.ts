@@ -7,10 +7,11 @@ import { ProjectService } from './project.service';
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
+
 export class ProjectComponent implements OnInit {
 
     items:Array<string>=[];
-    title='';
+    title:string ="";
     @ViewChild('newItem') newItem:any;
 
   constructor(
@@ -32,9 +33,9 @@ export class ProjectComponent implements OnInit {
    this.items.splice(index,1);
   }
 
-  submitProject(){
+  createProject(){
     this.service.createProject(this.title,this.items).subscribe(
-      project => {this.router.navigate([project.id], {relativeTo: this.route})
+      project => {this.router.navigate(['project/'+project.id], {relativeTo: this.route})
     });
   }
 }
