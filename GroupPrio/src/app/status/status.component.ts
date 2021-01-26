@@ -20,7 +20,7 @@ export class StatusComponent implements OnInit {
     private router: Router,
     private service: StatusService
     ) {
-      this.project = new WeightedProject("",[])
+      this.project = new WeightedProject("",[],0)
     }
 
   ngOnInit(): void {

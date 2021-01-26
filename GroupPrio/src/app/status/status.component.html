@@ -2,7 +2,7 @@
 
 <label>Link for prioritization: </label><a href="{{prioLink}}" style="margin-bottom: 20px">{{prioLink}}</a><br>
 
-<label>Current prioritization (</label><span>{{refreshTime | date: "dd.MM.yyyy HH:mm"}}, </span><span> submitted)</span><br>
+<label>Current prioritization (</label><span>{{refreshTime | date: "dd.MM.yyyy HH:mm"}}, </span><span>{{project.submissionCount}} submitted)</span><br>
 
 <ol>
 <div *ngFor="let item of project.weightedItems" style="padding: 2px">
