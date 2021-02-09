@@ -1,20 +1,23 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { WeightedProject} from '../entities/WeightedProject';
+import { WeightedProject } from '../entities/WeightedProject';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StatusService {
-  endpoint = "/project";
+  endpoint = '/project';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) {}
 
-
-  getProjectState(id:string): Observable<WeightedProject>{
-    var url = `${environment.apiUrl}${this.endpoint}/${id}/prioritization`
-    return this.http.get<WeightedProject>(url);
+  getProjectState(id: string): Observable<WeightedProject> {
+    let cookieHeader = new HttpHeaders({
+      clientid: this.cookieService.get('clientId'),
+    });
+    var url = `${environment.apiUrl}${this.endpoint}/${id}/prioritization`;
+    return this.http.get<WeightedProject>(url, { headers: cookieHeader });
   }
 }
