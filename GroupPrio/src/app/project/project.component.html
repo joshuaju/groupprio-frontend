@@ -1,11 +1,19 @@
-<label>Projecttitle:</label><br>
-<input name="title" [(ngModel)]="title" type="text" style="margin-bottom: 20px" ><br>
+<label>Projecttitle:</label><br />
+<input
+  name="title"
+  [(ngModel)]="title"
+  type="text"
+  style="margin-bottom: 20px"
+/><br />
+<input
+  type="checkbox"
+  [(ngModel)]="isMultipleSubmissionsAllowed"
+  style="margin-bottom: 20px"
+/>enable Multisubmission<br />
 
-
-
-<label>Items to prioritize...:</label><br>
-<div *ngFor="let item of items" style="padding: 2px">  
-  <span style="padding-right: 5px">{{item}}</span>
+<label>Items to prioritize...:</label><br />
+<div *ngFor="let item of items" style="padding: 2px">
+  <span style="padding-right: 5px">{{ item }}</span>
   <button (click)="removeItem(item)">delete</button>
 </div>
 
@@ -13,7 +21,5 @@
   <input #newItem type=text style="margin-right: 5px" (keyup.enter)="addItem(newItem.value)">
   <button (click)="addItem(newItem.value)">add</button>
 </div>
-
-
 
 <button (click)="createProject()">Create</button>
