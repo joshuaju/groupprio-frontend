@@ -12,6 +12,7 @@ export class ProjectComponent implements OnInit {
 
     items:Array<string>=[];
     title:string ="";
+    isMultipleSubmissionsAllowed:boolean=false;
     @ViewChild('newItem') newItem:any;
 
   constructor(
@@ -34,7 +35,7 @@ export class ProjectComponent implements OnInit {
   }
 
   createProject(){
-    this.service.createProject(this.title,this.items).subscribe(
+    this.service.createProject(this.title,this.items,this.isMultipleSubmissionsAllowed).subscribe(
       project => {this.router.navigate(['project/'+project.id], {relativeTo: this.route})
     });
   }
