@@ -12,7 +12,7 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  createProject(title:string, items:string[]): Observable<Project> {
-    return this.http.post<Project>(environment.apiUrl+this.endpoint, {title, items});
+  createProject(title:string, items:string[], isMultipleSubmissionsAllowed:boolean): Observable<Project> {
+    return this.http.post<Project>(environment.apiUrl+this.endpoint, {title, items,isMultipleSubmissionsAllowed});
   }
 }
