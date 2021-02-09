@@ -10,7 +10,7 @@
 </div>
 
 <div style="margin-bottom: 20px">
-  <input #newItem type=text style="margin-right: 5px">
+  <input #newItem type=text style="margin-right: 5px" (keyup.enter)="addItem(newItem.value)">
   <button (click)="addItem(newItem.value)">add</button>
 </div>
 
