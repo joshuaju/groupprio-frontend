@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OverviewProject} from '../../entities/OverviewProject';
 import {ProjectService} from '../project.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-project-overview',
@@ -10,7 +11,9 @@ import {ProjectService} from '../project.service';
 export class ProjectOverviewComponent implements OnInit {
   projects: OverviewProject[] = [new OverviewProject('123', 'TestProject')];
 
-  constructor(private projectService: ProjectService) {
+  constructor(private projectService: ProjectService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -19,5 +22,9 @@ export class ProjectOverviewComponent implements OnInit {
 
   getProjects(): void {
     this.projectService.getProjects('123').subscribe(currentProjects => this.projects = currentProjects);
+  }
+
+  navigateToProject(id: string): void {
+    this.router.navigate([id], {relativeTo: this.route});
   }
 }
