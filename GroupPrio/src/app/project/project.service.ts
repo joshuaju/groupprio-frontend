@@ -16,10 +16,11 @@ export class ProjectService {
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
-  createProject(title: string, items: string[]): Observable<Project> {
+  createProject(title: string, items: string[], isMultipleSubmissionsAllowed:boolean): Observable<Project> {
     return this.http.post<Project>(environment.apiUrl + this.endpoint, {
       title,
       items,
+    isMultipleSubmissionsAllowed,
     }, {headers: this.cookieHeader});
   }
 }
