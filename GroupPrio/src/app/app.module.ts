@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {ProjectOverviewComponent} from './project/project-overview/project-overview.component';
 import {MatTableModule} from '@angular/material/table';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     NoopAnimationsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
