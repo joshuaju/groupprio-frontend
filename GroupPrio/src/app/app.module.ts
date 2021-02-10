@@ -10,8 +10,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {FormsModule} from '@angular/forms';
 import {ProjectOverviewComponent} from './project/project-overview/project-overview.component';
 import {MatTableModule} from '@angular/material/table';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CookieService } from 'ngx-cookie-service';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
