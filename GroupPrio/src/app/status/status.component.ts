@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { StatusService } from './status.service';
-import { WeightedProject } from '../entities/WeightedProject';
-import { environment } from 'src/environments/environment';
-import { interval } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {StatusService} from './status.service';
+import {WeightedProject} from '../entities/WeightedProject';
+import {environment} from 'src/environments/environment';
+import {interval} from 'rxjs';
 
 @Component({
   selector: 'app-status',
@@ -11,9 +11,9 @@ import { interval } from 'rxjs';
   styleUrls: ['./status.component.scss'],
 })
 export class StatusComponent implements OnInit {
-  projectId: string = '';
+  projectId = '';
   project: WeightedProject;
-  prioLink: string = '';
+  prioLink = '';
   refreshTime: Date = new Date();
   refreshInterval = interval(10000);
 
@@ -37,14 +37,14 @@ export class StatusComponent implements OnInit {
     this.refreshInterval.subscribe(() => this.refreshProject());
   }
 
-  refreshProject() {
+  refreshProject(): void {
     this.service.getProjectState(this.projectId).subscribe((project) => {
       this.project = project;
     });
     this.refreshTime = new Date();
   }
 
-  prioritizeProject() {
-    this.router.navigate(['prioritization'], { relativeTo: this.route });
+  navigateToProjectOverview(): void {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 }

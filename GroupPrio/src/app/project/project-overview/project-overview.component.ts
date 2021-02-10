@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./project-overview.component.scss']
 })
 export class ProjectOverviewComponent implements OnInit {
-  projects: OverviewProject[] = [new OverviewProject('123', 'TestProject')];
+  projects: OverviewProject[] = [];
 
   constructor(private projectService: ProjectService,
               private router: Router,
@@ -26,5 +26,9 @@ export class ProjectOverviewComponent implements OnInit {
 
   navigateToProject(id: string): void {
     this.router.navigate([id], {relativeTo: this.route});
+  }
+
+  navigateToProjectCreation(): void {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 }
