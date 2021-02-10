@@ -8,6 +8,7 @@ import { ProjectComponent } from './project/project.component';
 import { StatusComponent } from './status/status.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     DragDropModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
