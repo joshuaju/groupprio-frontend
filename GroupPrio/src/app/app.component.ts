@@ -20,7 +20,9 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.cookieService.set('clientId', this.clientId);
+    if (!this.cookieService.check('clientId')) {
+      this.cookieService.set('clientId', this.clientId);
+    }
     this.cookieValue = this.cookieService.get('clientId');
     this.addCookieFooter();
   }

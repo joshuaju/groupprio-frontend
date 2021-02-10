@@ -10,14 +10,14 @@ import { WeightedProject } from '../entities/WeightedProject';
 })
 export class StatusService {
   endpoint = '/project';
+  cookieHeader = new HttpHeaders({
+    clientid: this.cookieService.get('clientId'),
+  });
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   getProjectState(id: string): Observable<WeightedProject> {
-    let cookieHeader = new HttpHeaders({
-      clientid: this.cookieService.get('clientId'),
-    });
     var url = `${environment.apiUrl}${this.endpoint}/${id}/prioritization`;
-    return this.http.get<WeightedProject>(url, { headers: cookieHeader });
+    return this.http.get<WeightedProject>(url, { headers: this.cookieHeader });
   }
 }
