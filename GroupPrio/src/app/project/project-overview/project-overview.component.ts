@@ -21,7 +21,7 @@ export class ProjectOverviewComponent implements OnInit {
   }
 
   getProjects(): void {
-    this.projectService.getProjects('123').subscribe(currentProjects => this.projects = currentProjects);
+    this.projectService.getProjects().subscribe(currentProjects => this.projects = currentProjects);
   }
 
   navigateToProject(id: string): void {

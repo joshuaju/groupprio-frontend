@@ -23,10 +23,8 @@ export class ProjectService {
     }, {headers: this.cookieHeader});
   }
 
-  getProjects(id: string): Observable<OverviewProject[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({clientId: id})
-    };
-    return this.http.get<OverviewProject[]>(environment.apiUrl + this.endpoint, httpOptions);
+  getProjects(): Observable<OverviewProject[]> {
+    return this.http.get<OverviewProject[]>(environment.apiUrl + this.endpoint,
+      {headers: this.cookieHeader});
   }
 }
