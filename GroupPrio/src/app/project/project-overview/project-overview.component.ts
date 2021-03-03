@@ -22,7 +22,7 @@ export class ProjectOverviewComponent implements OnInit {
 
   getProjects(): void {
     this.projectService.getProjects().subscribe(currentProjects => {
-      this.projects = currentProjects;
+      this.projects = currentProjects.projects;
       if (this.projects.length === 0) {
         this.navigateToProjectCreation();
       }
