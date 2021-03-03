@@ -2,11 +2,11 @@ export class PrioProject{
 
     title: string; 
     items: string[];
-    isMultipleSubmissionsAllowed: boolean;
+    isSubmissionAllowed: boolean;
 
-    constructor(title:string, items:string[], isMultipleSubmissionsAllowed:boolean){
+    constructor(title:string, items:string[], isSubmissionAllowed:boolean){
         this.title = title;
         this.items = items;
-        this.isMultipleSubmissionsAllowed = isMultipleSubmissionsAllowed;
+        this.isSubmissionAllowed = isSubmissionAllowed;
     }
 }

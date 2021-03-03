@@ -11,7 +11,7 @@ import { PrioritizationService } from './prioritization.service';
 export class PrioritizeComponent implements OnInit {
   prioitems: Array<string> = [];
   submitted: boolean = false;
-  isMultipleSubmissionsAllowed: boolean = false;
+  isSubmissionAllowed: boolean = false;
   title: string = '';
   constructor(
     private route: ActivatedRoute,
@@ -25,15 +25,15 @@ export class PrioritizeComponent implements OnInit {
       .subscribe((prioProject) => {
         this.prioitems = prioProject.items;
         this.title = prioProject.title;
-        this.isMultipleSubmissionsAllowed = prioProject.isMultipleSubmissionsAllowed;
+        this.isSubmissionAllowed = prioProject.isSubmissionAllowed;
       });
   }
 
   submit() {
     this.service
       .submitPrio(this.prioitems, this.route.snapshot.params['id'])
-      .subscribe(() => {
-        this.submitted = true;
+      .subscribe((response) => {
+        this.isSubmissionAllowed = response.isSubmissionAllowed;
       });
   }
 
