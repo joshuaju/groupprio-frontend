@@ -45,6 +45,6 @@ export class StatusComponent implements OnInit {
   }
 
   navigateToProjectOverview(): void {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['../../'], {relativeTo: this.route});
   }
 }
