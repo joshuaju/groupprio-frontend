@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { ProjectService } from './project.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ProjectService} from './project.service';
 
 @Component({
   selector: 'app-project',
@@ -10,8 +10,8 @@ import { ProjectService } from './project.service';
 
 export class ProjectComponent implements OnInit {
 
-    items:Array<string>=[];
-    title:string ="";
+  items: Array<string> = [];
+  title: string = "";
     isMultipleSubmissionsAllowed:boolean=false;
     @ViewChild('newItem') newItem:any;
 
@@ -34,9 +34,10 @@ export class ProjectComponent implements OnInit {
    this.items.splice(index,1);
   }
 
-  createProject(){
-    this.service.createProject(this.title,this.items,this.isMultipleSubmissionsAllowed).subscribe(
-      project => {this.router.navigate(['project/'+project.id], {relativeTo: this.route})
-    });
+  createProject(): void {
+    this.service.createProject(this.title, this.items, this.isMultipleSubmissionsAllowed).subscribe(
+      project => {
+        this.router.navigate([project.id], {relativeTo: this.route});
+      });
   }
 }

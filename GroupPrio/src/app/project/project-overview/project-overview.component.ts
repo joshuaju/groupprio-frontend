@@ -21,14 +21,19 @@ export class ProjectOverviewComponent implements OnInit {
   }
 
   getProjects(): void {
-    this.projectService.getProjects().subscribe(currentProjects => this.projects = currentProjects);
+    this.projectService.getProjects().subscribe(currentProjects => {
+      this.projects = currentProjects;
+      if (this.projects.length === 0) {
+        this.navigateToProjectCreation();
+      }
+    });
   }
 
   navigateToProject(id: string): void {
-    this.router.navigate([id], {relativeTo: this.route});
+    this.router.navigate(['project', id], {relativeTo: this.route});
   }
 
   navigateToProjectCreation(): void {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['project'], {relativeTo: this.route});
   }
 }
